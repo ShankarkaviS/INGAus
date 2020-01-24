@@ -13,11 +13,14 @@ public class AccountSetServiceImpl implements AccountSetService {
 
 	@Autowired
 	AccountRepository accountRepository;
+
 	
 	@Override
 	public List<Account> getAllAccount() {
 	
 		return accountRepository.findAll();
 	}
+	
+	
 
 }
