@@ -6,14 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hcl.introduction.entity.Account;
+import com.hcl.introduction.entity.Student;
 import com.hcl.introduction.repository.AccountRepository;
+import com.hcl.introduction.repository.StudentRepository;
 
 @Service
-public class AccountServiceImpl implements AccountService {
+public class AccountServiceImpl implements AccountService, StudentService {
 	
 	@Autowired
 	AccountRepository accountRepository;
 
+	@Autowired
+	StudentRepository studentRepository;
 	
 	  @Override public boolean create(Account account) {
 	  
@@ -52,6 +56,12 @@ public class AccountServiceImpl implements AccountService {
 	public List<Account> getAccountData(Long accountId, String place, Long age) {
 		
 		return accountRepository.getAccountData(accountId, place, age);
+	}
+
+
+	@Override
+	public List<Student> getAllStudent() {
+		return studentRepository.findAll();
 	}
 
 
